@@ -29,6 +29,9 @@
     "to-do-e2e": {
       "tags": [],
       "implicitDependencies": ["to-do"]
+    },
+    "shared-ui-components": {
+      "tags": []
     }
   }
 }
