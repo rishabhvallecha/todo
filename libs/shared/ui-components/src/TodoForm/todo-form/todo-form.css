@@ -1,0 +1,40 @@
+.container
+{
+    text-align: center;
+    border: solid transparent;
+    border-width: 1px 1px 1px 6px;
+    background-color: rgba(255,255,255,.3);
+    box-shadow: inset 1px 1px 0 rgba(0,0,0,.1), inset 0 -1px 0 rgba(0,0,0,.07);
+    min-height: 28px;
+    padding: 10px;
+    color: #e8eaed;
+    font-size: 15px;
+    font-family: 'Roboto',arial,sans-serif; 
+}
+.container__inputarea
+{
+    width:100%;
+    font-size: 15px;
+    border: transparent;
+    padding: 10px 15px;
+    margin-bottom: 1%;
+
+}
+.container__inputarea:focus,.container__inputarea:active
+{
+    border: transparent;
+}
+.container__inputarea--listItem
+{
+    width:90%;
+    padding: 10px 0px;
+}
+.addsymbol
+{
+    float: left;
+    font-size: 20px;
+    width: 10%;
+    padding: 8px 0px;
+    color: black;
+
+}
