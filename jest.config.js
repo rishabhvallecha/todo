@@ -3,5 +3,6 @@ module.exports = {
     '<rootDir>/apps/to-do',
     '<rootDir>/libs/shared',
     '<rootDir>/libs/shared/ui-components',
+    '<rootDir>/libs/application',
   ],
 };
