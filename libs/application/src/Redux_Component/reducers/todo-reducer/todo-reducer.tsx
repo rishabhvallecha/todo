@@ -1,4 +1,5 @@
-import  {SET_ITEM,SET_TITLE} from '../../types/types'; 
+import  {SET_ITEM,SET_TITLE} from '@todo/application'; 
+
 const initialState = {
     title:'',
     id: null,
@@ -7,9 +8,11 @@ const initialState = {
 };
 //const initialState: statetype[] = [];
 
-export default function(state = initialState, action)
+export const todoReducer =(state = initialState,action) =>
+//export default function(state = initialState, action)
 {
-    //console.log(action.payload);
+
+    console.log(action.payload);
     switch (action.type) {
         case SET_ITEM:
             return{
@@ -26,3 +29,5 @@ export default function(state = initialState, action)
             return state;
     }
 }
+
+//export default todoReducer;

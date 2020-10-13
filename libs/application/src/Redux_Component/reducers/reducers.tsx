@@ -1,6 +1,9 @@
 import {combineReducers} from 'redux';
-import TodoReducer from './todo-reducer/todo-reducer';
+//import todoReducer from './todo-reducer/todo-reducer';
+import {todoReducer} from '@todo/application';
 
-export default combineReducers({
-    todo: TodoReducer
+export const rootReducer =  combineReducers({
+    todo: todoReducer
 });
+
+//export default rootReducer;

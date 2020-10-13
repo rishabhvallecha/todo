@@ -3,7 +3,7 @@ import './todo-form.css';
 import {CheckList} from '@todo/shared/ui-components'
 import {CompletedList} from '@todo/shared/ui-components'
 import {connect} from 'react-redux';
-import {SetItem,SetTitle} from '../../../../../application/src/Redux_Component/actions/actions';
+import {SetItem,SetTitle} from '@todo/application';
 
 interface TodoFormProps {
   //text?:string;
@@ -16,13 +16,13 @@ export class TodoForm extends Component <TodoFormProps>{
 
   onChange = e => {
     //console.log(e.target.value);
-    this.props.SetItem(e.target.value,this.props.title);
+    SetItem(e.target.value,this.props.title);
     e.target.value = "";
 }
   titleChange = e => {
    // console.log(e.target.value);
-    this.props.SetTitle(e.target.value); 
-    console.log(this.props.title)
+    SetTitle(e.target.value); 
+    //console.log(this.props.title)
   }
 
   render() {

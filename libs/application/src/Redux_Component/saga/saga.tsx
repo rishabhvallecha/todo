@@ -1,9 +1,11 @@
 import {takeEvery,put,call} from 'redux-saga/effects';
-import {SET_ITEM} from '../types/types';
-import {SetItemSuccess} from '../actions/actions';
+import {SET_ITEM} from '@todo/application';
+//import {SetItemSuccess} from '../actions/actions';
 
 function* setitem(action){
     try{
+
+      console.log(action.id);
        var obj = {
          "id" :` ${action.id}`,
          "text" : `${action.text}`,

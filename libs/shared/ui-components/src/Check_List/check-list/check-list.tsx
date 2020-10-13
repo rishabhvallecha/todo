@@ -6,10 +6,10 @@ export interface CheckListProps {}
 export const CheckList = (props: CheckListProps) => {
   //var data = require('../../../../../../data.json');
   return (
-    <form>
+    <div>
       <input type="checkbox" className="addsymbol addsymbol--checkbox"/>
       <input type="text" className="container__inputarea container__inputarea--listItem"/>
-    </form>
+    </div>
   );
 };
 
