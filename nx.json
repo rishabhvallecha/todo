@@ -32,6 +32,9 @@
     },
     "shared-ui-components": {
       "tags": []
+    },
+    "application": {
+      "tags": []
     }
   }
 }
