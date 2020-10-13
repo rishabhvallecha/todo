@@ -1,11 +1,11 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 
-import ReactSaga from './react-saga';
+import TodoReducer from './todo-reducer';
 
-describe('ReactSaga', () => {
+describe('TodoReducer', () => {
   it('should render successfully', () => {
-    const { baseElement } = render(<ReactSaga />);
+    const { baseElement } = render(<TodoReducer />);
     expect(baseElement).toBeTruthy();
   });
 });
