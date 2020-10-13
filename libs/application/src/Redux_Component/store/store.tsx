@@ -1,16 +1,14 @@
-import React from 'react';
+import {createStore, applyMiddleware} from 'redux';
+import createSagaMiddleware from 'redux-saga';
+import saga from '../saga/saga';
+import {composeWithDevTools} from 'redux-devtools-extension/developmentOnly';
+import rootReducer from '../reducers/reducers';
 
-import './store.css';
+const middleware=createSagaMiddleware();
+export const store = createStore(rootReducer,composeWithDevTools(applyMiddleware(middleware)));
 
-/* eslint-disable-next-line */
-export interface StoreProps {}
+export type AppState = ReturnType<typeof rootReducer>
 
-export const Store = (props: StoreProps) => {
-  return (
-    <div>
-      <h1>Welcome to store!</h1>
-    </div>
-  );
-};
+middleware.run(saga);
 
-export default Store;
+export default store;

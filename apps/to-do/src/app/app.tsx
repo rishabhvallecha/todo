@@ -3,8 +3,7 @@ import { PageTitle } from '@todo/shared/ui-components'
 import './app.css';
 import {TodoForm} from '@todo/shared/ui-components'
 import {Provider} from 'react-redux';
-import {store} from '../../../../libs/react_components/store';
-import {SetItem} from '../../../../libs/react_components/actions/todoActions'
+import {store} from '../../../../libs/application/src/Redux_Component/store/store';
 export const App = () => {
 
   return (

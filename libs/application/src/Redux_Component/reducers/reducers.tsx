@@ -1,16 +1,6 @@
-import React from 'react';
+import {combineReducers} from 'redux';
+import TodoReducer from './todo-reducer/todo-reducer';
 
-import './reducers.css';
-
-/* eslint-disable-next-line */
-export interface ReducersProps {}
-
-export const Reducers = (props: ReducersProps) => {
-  return (
-    <div>
-      <h1>Welcome to reducers!</h1>
-    </div>
-  );
-};
-
-export default Reducers;
+export default combineReducers({
+    todo: TodoReducer
+});

@@ -1,16 +1,17 @@
-import React from 'react';
+import {SET_ITEM,SET_TITLE} from '../types/types';
 
-import './actions.css';
 
-/* eslint-disable-next-line */
-export interface ActionsProps {}
 
-export const Actions = (props: ActionsProps) => {
-  return (
-    <div>
-      <h1>Welcome to actions!</h1>
-    </div>
-  );
-};
+export const SetItem = (text:string, title:string) => 
+    ({ type: SET_ITEM,title:title,text:text,id:Math.random()});
 
-export default Actions;
+export const SetItemSuccess = () =>
+({
+   // type: SET_ITEM_SUCCESS
+})
+
+export const SetTitle = (title: string) =>
+(
+  //console.log(title)
+  { type: SET_TITLE, paylaod:title,}
+)

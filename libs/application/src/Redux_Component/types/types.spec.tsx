@@ -1,11 +1,11 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 
-import ReactStore from './react-store';
+import Types from './types';
 
-describe('ReactStore', () => {
+describe('Types', () => {
   it('should render successfully', () => {
-    const { baseElement } = render(<ReactStore />);
+    const { baseElement } = render(<Types />);
     expect(baseElement).toBeTruthy();
   });
 });
