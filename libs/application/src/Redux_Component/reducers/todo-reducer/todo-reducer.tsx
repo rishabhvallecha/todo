@@ -1,10 +1,10 @@
-import  {SET_ITEM,SET_TITLE} from '@todo/application'; 
+import  {SET_ITEM,SET_TITLE,GET_TITLE,GET_TITLE_SUCCESS} from '@todo/application'; 
 
 const initialState = {
     id: null,
     text: '',
     Isdone: false,
-    title:'',
+    title: localStorage.getItem('title'),
 };
 //const initialState: statetype[] = [];
 

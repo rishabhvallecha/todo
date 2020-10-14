@@ -1,6 +1,6 @@
 import {takeEvery,put,call} from 'redux-saga/effects';
-import {SET_ITEM,SET_TITLE} from '../types/types';
-import {SetItemSuccess} from '../actions/actions';
+import {SET_ITEM,SET_TITLE,GET_TITLE} from '../types/types';
+//import {GetTitleSuccess} from '../actions/actions';
 
 function* setitem(action){
     try{
@@ -31,7 +31,22 @@ function* settitle(action){
     }
 }
 
+/*function* gettitle(action){
+    try{
+        //const success = yield localStorage.setItem("title",`${action.title}`);
+        const title = yield localStorage.getItem("title");
+        //console.log(title);
+        //const title = success.toString();
+        yield put(GetTitleSuccess(title));
+    }
+    catch(error){
+        yield console.log(error);
+    }
+}*/
+
 export default function* waitforaction() {
     yield takeEvery(SET_ITEM,setitem)
     yield takeEvery(SET_TITLE,settitle)
+    //yield takeEvery(GET_TITLE,gettitle)
+
 }
