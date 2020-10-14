@@ -19,7 +19,6 @@ export const todoReducer =(state = initialState,action) =>
                 ...state,
                 text: action.text,
                 id: action.id,
-                title:action.title,
             }
           case SET_TITLE:
             return{

@@ -51,7 +51,7 @@ export function TodoForm (props){
   const onChange = e => 
   {
     //console.log(state.title);
-    dispatch(SetItem(e.target.value,state.title));
+    dispatch(SetItem(e.target.value));
     e.target.value = "";
   }
   const titleChange = e => 

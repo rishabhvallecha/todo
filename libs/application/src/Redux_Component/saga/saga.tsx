@@ -1,5 +1,5 @@
 import {takeEvery,put,call} from 'redux-saga/effects';
-import {SET_ITEM} from '../types/types';
+import {SET_ITEM,SET_TITLE} from '../types/types';
 import {SetItemSuccess} from '../actions/actions';
 
 function* setitem(action){
@@ -10,7 +10,21 @@ function* setitem(action){
          "text" : `${action.text}`,
          "Isdone" : false
        }
-        const success = yield localStorage.setItem(`${action.title}`,JSON.stringify(obj))
+       //interface existing 
+        //var existing = [];
+        var existing = localStorage.getItem("content");
+        var values = existing ? existing.split(',') : [];   
+        values.push(JSON.stringify(obj));
+        const success = yield localStorage.setItem("content",values.toString());
+    }
+    catch(error){
+        yield console.log(error);
+    }
+}
+
+function* settitle(action){
+    try{
+        const success = yield localStorage.setItem("title",`${action.title}`);
     }
     catch(error){
         yield console.log(error);
@@ -19,4 +33,5 @@ function* setitem(action){
 
 export default function* waitforaction() {
     yield takeEvery(SET_ITEM,setitem)
+    yield takeEvery(SET_TITLE,settitle)
 }
