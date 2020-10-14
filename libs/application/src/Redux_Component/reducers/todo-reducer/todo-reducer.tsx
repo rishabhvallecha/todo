@@ -5,6 +5,8 @@ const initialState = {
     text: '',
     Isdone: false,
     title: localStorage.getItem('title'),
+    
+    list: localStorage.getItem('content'),
 };
 //const initialState: statetype[] = [];
 

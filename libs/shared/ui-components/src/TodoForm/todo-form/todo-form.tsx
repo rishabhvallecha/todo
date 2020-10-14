@@ -1,4 +1,4 @@
-import React,{Component} from 'react'
+import React   from 'react'
 import './todo-form.css';
 import {CheckList} from '@todo/shared/ui-components'
 import {CompletedList} from '@todo/shared/ui-components'
@@ -14,10 +14,15 @@ interface TodoFormProps {
 
 
 
-export function TodoForm (props){
+export function TodoForm (props:TodoFormProps){
 
   const state = useSelector(state => state.todo)
   const dispatch = useDispatch();
+  var title = '';
+  if(state.title)
+  {
+     title = state.title;
+  }
   //console.log(state.title);
   //dispatch(GetTitle())
   const onChange = e => 
@@ -28,16 +33,17 @@ export function TodoForm (props){
   }
   const titleChange = e => 
   {
-    //console.log(e.target.value);
+    console.log((state.list.content));
     dispatch(SetTitle(e.target.value)); 
+
     //console.log(this.props.title)
   }
 
     return (
       <div>
         <form className="container">
-        <input type="text" name="Title" placeholder="Title" className="container__inputarea" onChange={titleChange} value= {state.title}/>
-        <CheckList />
+        <input type="text" name="Title" placeholder="Title" className="container__inputarea" onChange={titleChange} value= {title}/>
+        <CheckList/>
         <div className="addsymbol"> + </div>
         <input type="text" placeholder="List item" className="container__inputarea container__inputarea--listItem" onChange= {onChange}/>
         <CompletedList/>
