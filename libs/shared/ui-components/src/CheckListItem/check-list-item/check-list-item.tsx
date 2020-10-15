@@ -15,7 +15,7 @@ export const CheckListItem = (props: CheckListItemProps) => {
   return (
     <div>
       <input type="checkbox" className="addsymbol addsymbol--checkbox"/>
-      <input type="text" className="container__inputarea container__inputarea--listItem" value={props.item}/>
+      <input type="text" className="container__inputarea container__inputarea--listItem" value={props.item.text}/>
     </div>
     );
 };

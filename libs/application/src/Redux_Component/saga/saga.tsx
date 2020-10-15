@@ -6,16 +6,23 @@ function* setitem(action){
     try{
       //console.log(action.title);
        var obj = {
-         "id" :` ${action.id}`,
-         "text" : `${action.text}`,
-         "Isdone" : false
+         id : action.id,
+         text : action.text,
+         Isdone : false
        }
        //interface existing 
         //var existing = [];
-        var existing = localStorage.getItem("content");
-        var values = existing ? existing.split(',') : [];   
-        values.push(JSON.stringify(obj));
-        const success = yield localStorage.setItem("content",values.toString());
+       // var existing = localStorage.getItem("content");
+       const existing = JSON.parse(localStorage.getItem("content"));
+       const values = [];
+       if(existing)
+       {
+         values.push(existing); 
+       }
+         
+       values.push(obj);
+
+        const success = yield localStorage.setItem("content",JSON.stringify(values));
     }
     catch(error){
         yield console.log(error);

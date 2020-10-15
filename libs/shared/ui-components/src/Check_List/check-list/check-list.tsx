@@ -19,10 +19,16 @@ export const CheckList = (props: CheckListProps) => {
     //var items = JSON.parse(item);
     
     
-    //var list = JSON.parse(JSON.stringify(items));
-    var array = state.list.split(',');
-    console.log(array);
-    content = array.map((item, index) => (
+    //var list = JSON.parse(JSON.stringify(state.list));
+    //var res = [];
+    //for(var i in list)
+    //{
+      //res.push(list[i]);
+    //}
+   // var array = JSON.parse(state.list);
+    //var array = state.list.split(',');
+    console.log(state.list);
+    content = state.list.map((item, index) => (
       <CheckListItem key={index} item={item} />
     ));
   } 
