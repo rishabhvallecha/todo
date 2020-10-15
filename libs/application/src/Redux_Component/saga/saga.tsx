@@ -10,19 +10,12 @@ function* setitem(action){
          text : action.text,
          Isdone : false
        }
-       //interface existing 
-        //var existing = [];
-       // var existing = localStorage.getItem("content");
-       const existing = JSON.parse(localStorage.getItem("content"));
-       const values = [];
-       if(existing)
-       {
-         values.push(existing); 
-       }
-         
-       values.push(obj);
+        const existing = JSON.parse(localStorage.getItem("content")) || [];
+      
 
-        const success = yield localStorage.setItem("content",JSON.stringify(values));
+            existing.push(obj);
+
+        const success = yield localStorage.setItem("content",JSON.stringify(existing));
     }
     catch(error){
         yield console.log(error);
