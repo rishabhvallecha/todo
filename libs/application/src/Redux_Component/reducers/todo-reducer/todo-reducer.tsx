@@ -6,7 +6,7 @@ const initialState = {
     Isdone: false,
     title: localStorage.getItem('title'),
     
-    list: JSON.parse(localStorage.getItem('content')),
+    list: JSON.parse(localStorage.getItem('content'))||'',
 };
 //const initialState: statetype[] = [];
 
