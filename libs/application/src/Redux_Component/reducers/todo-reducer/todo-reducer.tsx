@@ -21,6 +21,8 @@ export const todoReducer =(state = initialState,action) =>
                 ...state,
                 text: action.text,
                 id: action.id,
+                //if(state)
+                list : [...state.list,{id:action.id, text: action.text,Isdone: false}]
             }
           case SET_TITLE:
             return{

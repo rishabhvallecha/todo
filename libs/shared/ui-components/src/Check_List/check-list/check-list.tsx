@@ -12,23 +12,10 @@ export const CheckList = (props: CheckListProps) => {
   let content = "";
   if(state.list)
   {
-    //var list = state.list.content.split(',');
-    //console.log(list);
-    //var item =JSON.parse(JSON.stringify(state.list));
-    //console.log(typeof(item));
-    //var items = JSON.parse(item);
     
-    
-    //var list = JSON.parse(JSON.stringify(state.list));
-    //var res = [];
-    //for(var i in list)
-    //{
-      //res.push(list[i]);
-    //}
-   // var array = JSON.parse(state.list);
-    //var array = state.list.split(',');
     console.log(state.list);
     content = state.list.map((item, index) => (
+      //console.log(item.isDone)
       <CheckListItem key={index} item={item} />
     ));
   } 

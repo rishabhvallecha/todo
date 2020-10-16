@@ -1,0 +1,9 @@
+.Completed__text{
+    color:black;
+    text-align: left;
+    margin-right: 75%;
+}
+.completed__item
+{
+    text-decoration: line-through;
+}
