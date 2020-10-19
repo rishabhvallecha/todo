@@ -7,7 +7,7 @@ import {CheckListItem} from '@todo/shared/ui-components'
 export interface CheckListProps {}
 
 export const CheckList = (props: CheckListProps) => {
-  //var data = require('../../../../../../data.json');
+
   const state = useSelector(state => state.todo)
   let content = "";
   if(state.list)

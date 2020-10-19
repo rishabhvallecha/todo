@@ -4,7 +4,6 @@ const initialState = {
     title: localStorage.getItem('title'),
     list: JSON.parse(localStorage.getItem('content'))||'',
 };
-//const initialState: statetype[] = [];
 
 export const todoReducer =(state = initialState,action) =>
 //export default function(state = initialState, action)
@@ -15,7 +14,7 @@ export const todoReducer =(state = initialState,action) =>
         case SET_ITEM:
             return{
                 ...state,
-                list : [...state.list,{id:action.id, text: action.text,Isdone: false}]
+                list : [...state.list,{id:action.id, text: action.text, isDone: false}]
             }
           case SET_TITLE:
             return{
