@@ -13,16 +13,12 @@ interface TodoFormProps {
 }
 
 
-
 export function TodoForm (props:TodoFormProps){
 
   const state = useSelector(state => state.todo)
   const dispatch = useDispatch();
-  var title = '';
-  if(state.title)
-  {
-     title = state.title;
-  }
+  const title = state.title || '';
+
   //console.log(state.title);
   //dispatch(GetTitle())
   const onChange = e => 

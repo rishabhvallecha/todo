@@ -1,6 +1,10 @@
-import {SET_ITEM,SET_TITLE,GET_TITLE,GET_TITLE_SUCCESS} from '@todo/application';
+import {SET_ITEM,SET_TITLE, EDIT_ITEM} from '@todo/application';
 
-
+export interface ItemType {
+  isDone: boolean,
+  id: number,
+  text: string
+}
 
 export const SetItem = (text:string) => 
     ( 
@@ -8,6 +12,10 @@ export const SetItem = (text:string) =>
       { type: SET_ITEM,text:text,id:Math.random()}
     );
 
+export const EditItem = (item: ItemType) => ({
+  type: EDIT_ITEM,
+  item
+})
 /*export const GetTitleSuccess = (title:string) =>
 ({
     type: GET_TITLE_SUCCESS,
