@@ -43,7 +43,7 @@ export const CompletedListItem = (props: CompletedListItemProps) => {
           <input type="checkbox" className="addsymbol addsymbol--checkbox" checked={item.isDone} onChange={handleCheckBoxChange}/>
           <input type="text" className="container__inputarea container__inputarea--listItem completed__item" value={item.text} onChange={handleChange}/>
           <button className="checklist-container__delete-button" onClick={handleDelete}>
-            <i className="fa fa-trash-o fa-2x" aria-hidden="true"></i>
+            <i className="fa fa-times fa-1.5x" aria-hidden="true"></i>
           </button>
         </div>
        }
