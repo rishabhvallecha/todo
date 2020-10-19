@@ -1,11 +1,7 @@
 import  {SET_ITEM,SET_TITLE, EDIT_ITEM} from '@todo/application'; 
 
 const initialState = {
-    id: null,
-    text: '',
-    isDone: false,
     title: localStorage.getItem('title'),
-    
     list: JSON.parse(localStorage.getItem('content'))||'',
 };
 //const initialState: statetype[] = [];
@@ -19,14 +15,7 @@ export const todoReducer =(state = initialState,action) =>
         case SET_ITEM:
             return{
                 ...state,
-<<<<<<< HEAD
-                text: action.text,
-                id: action.id,
-                //if(state)
-                list : [...state.list,{id:action.id, text: action.text, isDone: false}]
-=======
                 list : [...state.list,{id:action.id, text: action.text,Isdone: false}]
->>>>>>> fe4418ac76d9d2cd9361736f276a6054cc6dd3e5
             }
           case SET_TITLE:
             return{
