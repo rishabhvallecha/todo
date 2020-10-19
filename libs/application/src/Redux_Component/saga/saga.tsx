@@ -1,21 +1,33 @@
-import {takeEvery,put,call} from 'redux-saga/effects';
-import {SET_ITEM,SET_TITLE,GET_TITLE} from '../types/types';
+import {takeEvery} from 'redux-saga/effects';
+import {SET_ITEM,SET_TITLE, EDIT_ITEM} from '../types/types';
 //import {GetTitleSuccess} from '../actions/actions';
 
 function* setitem(action){
     try{
       //console.log(action.title);
-       var obj = {
+       const obj = {
          id : action.id,
          text : action.text,
-         Isdone : false
+         isDone : false
        }
         const existing = JSON.parse(localStorage.getItem("content")) || [];
-      
+        existing.push(obj);
 
-            existing.push(obj);
+        yield localStorage.setItem("content",JSON.stringify(existing));
+    }
+    catch(error){
+        yield console.log(error);
+    }
+}
 
-        const success = yield localStorage.setItem("content",JSON.stringify(existing));
+function* editItem(action) {
+    try {
+        const existing = JSON.parse(localStorage.getItem("content"));
+        const newList = existing.map( (listItem) => {return {...listItem}} )
+        newList.find( listElement => listElement.id === action.item.id ).text = action.item.text
+        newList.find( listElement => listElement.id === action.item.id ).isDone = action.item.isDone
+
+        yield localStorage.setItem("content",JSON.stringify(newList));
     }
     catch(error){
         yield console.log(error);
@@ -24,12 +36,13 @@ function* setitem(action){
 
 function* settitle(action){
     try{
-        const success = yield localStorage.setItem("title",`${action.title}`);
+        yield localStorage.setItem("title",`${action.title}`);
     }
     catch(error){
         yield console.log(error);
     }
 }
+
 
 /*function* gettitle(action){
     try{
@@ -47,6 +60,7 @@ function* settitle(action){
 export default function* waitforaction() {
     yield takeEvery(SET_ITEM,setitem)
     yield takeEvery(SET_TITLE,settitle)
+    yield takeEvery(EDIT_ITEM, editItem)
     //yield takeEvery(GET_TITLE,gettitle)
 
 }
