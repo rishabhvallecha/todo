@@ -1,4 +1,5 @@
 import  {SET_ITEM,SET_TITLE, EDIT_ITEM} from '@todo/application'; 
+import { DELETE_ITEM } from '../../types/types';
 
 const initialState = {
     title: localStorage.getItem('title'),
@@ -26,6 +27,15 @@ export const todoReducer =(state = initialState,action) =>
             const newList = state.list.map( (listItem) => {return {...listItem}} )
             newList.find( listElement => listElement.id === action.item.id ).text = action.item.text
             newList.find( listElement => listElement.id === action.item.id ).isDone = action.item.isDone
+            return {
+                ...state,
+                list: newList
+            }
+        }
+
+        case DELETE_ITEM: {
+            const newList = state.list.filter( (listElement) => listElement.id !== action.item.id )
+            console.log(newList)
             return {
                 ...state,
                 list: newList
