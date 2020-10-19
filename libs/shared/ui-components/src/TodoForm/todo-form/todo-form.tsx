@@ -13,7 +13,6 @@ interface TodoFormProps {
 }
 
 
-
 export function TodoForm (props:TodoFormProps){
 
   const state = useSelector(state => state.todo)
@@ -49,3 +48,6 @@ export function TodoForm (props:TodoFormProps){
     )
 }
 
+
+
+export default TodoForm;
