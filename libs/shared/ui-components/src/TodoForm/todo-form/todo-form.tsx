@@ -52,3 +52,11 @@ export function TodoForm (props:TodoFormProps){
     )
 }
 
+
+const mapDispatchToProps = dispatch => ({
+  SetItem: (text: string,title: string) => dispatch(SetItem(text,title)),
+  SetTitle : (title:string) => dispatch(SetTitle(title))
+})
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(TodoForm);
