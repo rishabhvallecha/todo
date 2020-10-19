@@ -18,7 +18,7 @@ export const CompletedList = (props: CompletedListProps) => {
     
     //console.log(content);
   }
-    return(<div><p className="Completed__text">Completed items</p>{content}</div>);
+    return(<div><p className="completed__text">Completed items</p>{content}</div>);
     
   };
 

@@ -1,16 +1,16 @@
 import {takeEvery} from 'redux-saga/effects';
-import {SET_ITEM,SET_TITLE, EDIT_ITEM} from '../types/types';
-//import {GetTitleSuccess} from '../actions/actions';
+import {SET_ITEM,SET_TITLE, EDIT_ITEM, DELETE_ITEM} from '@todo/application';
 
-function* setitem(action){
-    try{
-      //console.log(action.title);
+
+function* setItem(action){
+    try {
+
        const obj = {
          id : action.id,
          text : action.text,
          isDone : false
        }
-        const existing = JSON.parse(localStorage.getItem("content")) || [];
+        const existing = yield JSON.parse(localStorage.getItem("content")) || [];
         existing.push(obj);
 
         yield localStorage.setItem("content",JSON.stringify(existing));
@@ -22,7 +22,7 @@ function* setitem(action){
 
 function* editItem(action) {
     try {
-        const existing = JSON.parse(localStorage.getItem("content"));
+        const existing = yield JSON.parse(localStorage.getItem("content"));
         const newList = existing.map( (listItem) => {return {...listItem}} )
         newList.find( listElement => listElement.id === action.item.id ).text = action.item.text
         newList.find( listElement => listElement.id === action.item.id ).isDone = action.item.isDone
@@ -34,7 +34,7 @@ function* editItem(action) {
     }
 }
 
-function* settitle(action){
+function* setTitle(action){
     try{
         yield localStorage.setItem("title",`${action.title}`);
     }
@@ -43,24 +43,22 @@ function* settitle(action){
     }
 }
 
-
-/*function* gettitle(action){
-    try{
-        //const success = yield localStorage.setItem("title",`${action.title}`);
-        const title = yield localStorage.getItem("title");
-        //console.log(title);
-        //const title = success.toString();
-        yield put(GetTitleSuccess(title));
+function* deleteItem(action) {
+    try {
+        const existing = JSON.parse(localStorage.getItem("content"));
+        const newList = existing.filter( (listElement) => listElement.id !== action.item.id);
+        yield localStorage.setItem("content",JSON.stringify(newList));
+        
     }
     catch(error){
         yield console.log(error);
     }
-}*/
+}
 
 export default function* waitforaction() {
-    yield takeEvery(SET_ITEM,setitem)
-    yield takeEvery(SET_TITLE,settitle)
+    yield takeEvery(SET_ITEM, setItem)
+    yield takeEvery(SET_TITLE, setTitle)
     yield takeEvery(EDIT_ITEM, editItem)
-    //yield takeEvery(GET_TITLE,gettitle)
+    yield takeEvery(DELETE_ITEM, deleteItem)
 
 }

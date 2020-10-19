@@ -1,4 +1,5 @@
 import {SET_ITEM,SET_TITLE, EDIT_ITEM} from '@todo/application';
+import { DELETE_ITEM } from '../types/types';
 
 export interface ItemType {
   isDone: boolean,
@@ -16,21 +17,14 @@ export const EditItem = (item: ItemType) => ({
   type: EDIT_ITEM,
   item
 })
-/*export const GetTitleSuccess = (title:string) =>
-({
-    type: GET_TITLE_SUCCESS,
-    title: title,
+
+export const DeleteItem = (item: ItemType) => ({
+  type: DELETE_ITEM,
+  item
 })
 
-export const GetTitle = () =>
-(
-  //console.log(title)
-  { type: GET_TITLE}
-);
-*/
 
 export const SetTitle = (title: string) =>
 (
-  //console.log(title)
   { type: SET_TITLE, title:title,}
 );

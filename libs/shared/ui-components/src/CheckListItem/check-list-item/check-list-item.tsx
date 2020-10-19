@@ -2,7 +2,7 @@ import React from 'react';
 
 import './check-list-item.css';
 import {useDispatch} from 'react-redux';
-import {EditItem} from '@todo/application';
+import {EditItem, DeleteItem} from '@todo/application';
 
 /* eslint-disable-next-line */
 export interface CheckListItemProps {
@@ -30,18 +30,23 @@ export const CheckListItem = (props: CheckListItemProps) => {
     dispatch(EditItem(newItem))
   }
 
-  if(!props.item.isDone)
-  {return (
-    <div>
-      <input type="checkbox" className="addsymbol addsymbol--checkbox" checked={item.isDone} onChange={handleCheckBoxChange}/>
-      <input type="text" className="container__inputarea container__inputarea--listItem" value={item.text} onChange={handleChange}/>
-    </div>
-    );}
-    else
-  {
-    return (<div></div>)
+  const handleDelete = () => {
+    dispatch(DeleteItem(item))
   }
-  
+
+  return (
+    <div>
+      {!item.isDone && 
+      <div className="checklist-container">
+        <input type="checkbox" className="addsymbol addsymbol--checkbox" checked={item.isDone} onChange={handleCheckBoxChange}/>
+        <input type="text" className="container__inputarea container__inputarea--listItem" value={item.text} onChange={handleChange}/>
+        <button className="checklist-container__delete-button" onClick={handleDelete}>
+          <i className="fa fa-trash-o fa-2x" aria-hidden="true"></i>
+        </button>
+      </div>
+      }
+    </div>
+  )
 };
 
 export default CheckListItem;
